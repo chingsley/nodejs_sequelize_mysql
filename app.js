@@ -6,6 +6,7 @@ const app = express();
 
 // DB COnnection
 require("./src/database/connection");
+require("./src/bootstrap")();
 
 app.use(express.json());
 app.use(helmet());

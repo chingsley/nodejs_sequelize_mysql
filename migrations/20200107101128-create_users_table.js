@@ -2,21 +2,28 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("tweets", {
+    return queryInterface.createTable("users", {
       id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-      contents: Sequelize.STRING(300),
-      userId: Sequelize.INTEGER(11),
+      username: {
+        type: Sequelize.STRING(35),
+        allowNull: false,
+        unique: true
+      },
+      password: {
+        type: Sequelize.STRING(20),
+        allowNull: false
+      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("tweets");
+    return queryInterface.dropTable("users");
   }
 };
